@@ -32,6 +32,7 @@ public class NewJFrame extends javax.swing.JFrame {
         tf_producto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jl_hora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +60,8 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jl_hora.setText("00:00:00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,6 +70,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jl_cajero)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_hora)
+                .addGap(105, 105, 105)
                 .addComponent(jl_cliente)
                 .addGap(55, 55, 55))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -86,7 +91,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_cajero)
-                    .addComponent(jl_cliente))
+                    .addComponent(jl_cliente)
+                    .addComponent(jl_hora))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -140,6 +146,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public javax.swing.JTable jTable1;
     private javax.swing.JLabel jl_cajero;
     private javax.swing.JLabel jl_cliente;
+    private javax.swing.JLabel jl_hora;
     private javax.swing.JTextField tf_producto;
     // End of variables declaration//GEN-END:variables
 }

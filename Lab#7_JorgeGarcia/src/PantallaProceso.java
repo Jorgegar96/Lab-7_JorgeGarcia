@@ -22,10 +22,19 @@ public class PantallaProceso extends JFrame {
     private JTextField tf_producto = new javax.swing.JTextField();
     private JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
     private JTable jTable1 = new javax.swing.JTable();
+    private JLabel jl_hora = new javax.swing.JLabel();
 
     public PantallaProceso()
 
     {
+
+        jl_cajero = new javax.swing.JLabel();
+        jl_cliente = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tf_producto = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jl_hora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +62,8 @@ public class PantallaProceso extends JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jl_hora.setText("00:00:00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,6 +72,8 @@ public class PantallaProceso extends JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jl_cajero)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_hora)
+                .addGap(105, 105, 105)
                 .addComponent(jl_cliente)
                 .addGap(55, 55, 55))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -80,7 +93,8 @@ public class PantallaProceso extends JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_cajero)
-                    .addComponent(jl_cliente))
+                    .addComponent(jl_cliente)
+                    .addComponent(jl_hora))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -91,6 +105,8 @@ public class PantallaProceso extends JFrame {
         );
 
         pack();
+        Hora h = new Hora(jl_hora);
+        h.start();
     }
 
     public JLabel getJl_cajero() {

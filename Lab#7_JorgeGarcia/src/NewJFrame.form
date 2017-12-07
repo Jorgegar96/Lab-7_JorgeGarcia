@@ -27,6 +27,8 @@
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="jl_cajero" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jl_hora" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
               <Component id="jl_cliente" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
           </Group>
@@ -51,6 +53,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jl_cajero" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jl_cliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_hora" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -105,5 +108,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jl_hora">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="00:00:00"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

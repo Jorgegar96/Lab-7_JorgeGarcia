@@ -82,8 +82,6 @@ public class Cajero extends Thread {
         this.frame = frame;
     }
 
-    
-    
     @Override
     public String toString() {
         return nombre;
@@ -109,17 +107,22 @@ public class Cajero extends Thread {
                             orden.getCliente() + "",
                             producto.getTiemo_procesamiento() + ""
                         };
-                        DefaultTableModel model = (DefaultTableModel) ((PantallaProceso)frame).getjTable1().getModel();
+                        DefaultTableModel model = (DefaultTableModel) ((PantallaProceso) frame).getjTable1().getModel();
                         model.addRow(newrow);
                         ((PantallaProceso) frame).getjTable1().setModel(model);
                     }
                     ordenes.remove(0);
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(4000);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Cajero.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+            }
+            try {
+                Thread.sleep(2500);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Cajero.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
