@@ -1,0 +1,1 @@
+Peras;12;3;Manzanas;3;4;Leche;10;5;Ajo;4;10;Cerveza;10;7;Jamon;60;12;Cepillo;300;5;Carne;50;2;Papas;500;7;Arroz;20;4

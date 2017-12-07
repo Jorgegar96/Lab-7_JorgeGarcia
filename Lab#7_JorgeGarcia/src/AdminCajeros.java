@@ -8,7 +8,6 @@
  *
  * @author JorgeLuis
  */
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,21 +15,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdminProductos {
-     private ArrayList<Producto> productos;
+public class AdminCajeros {
+    
+     private ArrayList<Cajero> cajeros;
      private File f;
 
-    public AdminProductos(String path) {
+    public AdminCajeros(String path) {
         this.f = new File(path);
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
+    public ArrayList<Cajero> getCajeros() {
+        return cajeros;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public void setCajeros(ArrayList<Cajero> cajeros) {
+        this.cajeros = cajeros;
     }
+
+    
 
     public File getF() {
         return f;
@@ -46,10 +48,9 @@ public class AdminProductos {
         try {
             fw = new FileWriter(f, false);
             bw = new BufferedWriter(fw);
-            for (Producto p : productos) {
-                bw.write(p.getNombre() + ";");
-                bw.write(p.getPrecio() + ";");
-                bw.write(p.getTiemo_procesamiento()+ ";");
+            for (Cajero c : cajeros) {
+                bw.write(c.getNombre() + ";");
+                bw.write(c.getId() + ";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -61,17 +62,16 @@ public class AdminProductos {
     public void cargarArchivo() {
         if (f.exists()) {
             Scanner sc = null;
-            productos = new ArrayList();
+            cajeros = new ArrayList();
             try {
 
                 sc = new Scanner(f);
                 sc.useDelimiter(";");
                 while (sc.hasNext()) {
-                    Producto p = new Producto(sc.next(),
-                            sc.nextFloat(),
-                            sc.nextInt()
+                    Cajero c = new Cajero(sc.next(),
+                            sc.next()
                     );
-                    productos.add(p);
+                    cajeros.add(c);
                 }
 
             } catch (Exception e) {

@@ -640,11 +640,21 @@ JComboBox cajeros;
     }
 
     public void traerCajeros() {
-
+        AdminCajeros ac = new AdminCajeros("./Cajeros.txt");
+        ac.cargarArchivo();
+        for (Cajero cajero : ac.getCajeros()) {
+            DefaultComboBoxModel model = (DefaultComboBoxModel) cajeros.getModel();
+            model.addElement(cajero);
+        }
     }
 
     public void traerProductos() {
-
+        AdminProductos ap = new AdminProductos("./Productos.txt");
+        ap.cargarArchivo();
+        for (Producto producto : ap.getProductos()) {
+            DefaultComboBoxModel model = (DefaultComboBoxModel) productoss.getModel();
+            model.addElement(producto);
+        }
     }
 
     public boolean IDUnico(String ID) {
