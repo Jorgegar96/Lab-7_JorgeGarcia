@@ -22,6 +22,11 @@ public class Client {
         this.orden = orden;
     }
 
+    public Client(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
     public String getNombre() {
         return nombre;
     }

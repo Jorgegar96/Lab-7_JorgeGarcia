@@ -291,6 +291,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jb_comprar.setText("Realizar Compra");
+        jb_comprar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_comprarMouseClicked(evt);
+            }
+        });
         jb_comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_comprarActionPerformed(evt);
@@ -514,6 +519,26 @@ public class Main extends javax.swing.JFrame {
         productoss.setModel(model);
     }//GEN-LAST:event_jb_agregarProductoMouseClicked
 
+    private void jb_comprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_comprarMouseClicked
+        try {
+            if (!this.tf_nameClient.getText().equals("")) {
+                Client c = new Client(this.tf_nameClient.getText(), (int) this.sp_edad.getValue());
+                DefaultComboBoxModel caj = (DefaultComboBoxModel) this.cajeross.getModel();
+                Orden o = new Orden((Cajero) caj.getSelectedItem(), c, porComprar);
+                ((Cajero) caj.getSelectedItem()).getOrdenes().add(o);
+                if (!((Cajero) caj.getSelectedItem()).isRunning()) {
+                    ((Cajero) caj.getSelectedItem()).start();
+                }
+                porComprar = new ArrayList();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this.jd_cliente, "Ocurrió un error y no se realizó la compra");
+            e.printStackTrace();
+            porComprar = new ArrayList();
+            regresarProductos();
+        }
+    }//GEN-LAST:event_jb_comprarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -594,11 +619,17 @@ public class Main extends javax.swing.JFrame {
 JComboBox cajeros;
     JComboBox productos;
     ArrayList<Producto> porComprar;
-    
-    public void regresarProductos(){
+
+    public void regresarProductos() {
         for (Producto producto : porComprar) {
             DefaultComboBoxModel model = (DefaultComboBoxModel) productoss.getModel();
-            model.addElement(porComprar);
+            ArrayList<Producto> comparar = new ArrayList();
+            for (int x = 0; x < model.getSize(); x++) {
+                comparar.add((Producto) model.getElementAt(x));
+            }
+            if (comparar.contains(producto)) {
+                model.addElement(producto);
+            }
         }
     }
 }
