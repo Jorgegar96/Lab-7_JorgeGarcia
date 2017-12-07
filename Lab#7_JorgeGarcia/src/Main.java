@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /*
@@ -7,7 +9,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author JorgeLuis
@@ -19,7 +20,9 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        cajeros = new ArrayList();
+        productos = new JComboBox();
+        cajeros = new JComboBox();
+        porComprar = new ArrayList();
     }
 
     /**
@@ -40,7 +43,34 @@ public class Main extends javax.swing.JFrame {
         jt_ID = new javax.swing.JFormattedTextField();
         jb_crearCajero = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tf_nameProduct = new javax.swing.JTextField();
+        sp_tiempo = new javax.swing.JSpinner();
+        tf_precio = new javax.swing.JTextField();
+        jb_crearPro = new javax.swing.JButton();
+        jb_salir = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jl_cajero = new javax.swing.JLabel();
+        jl_cliente = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tf_producto = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jd_cliente = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tf_nameClient = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        sp_edad = new javax.swing.JSpinner();
+        jb_agregarProducto = new javax.swing.JButton();
+        jb_comprar = new javax.swing.JButton();
+        productoss = new javax.swing.JComboBox<>();
+        cajeross = new javax.swing.JComboBox<>();
+        jb_salir2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jb_admin = new javax.swing.JButton();
         jb_cliente = new javax.swing.JButton();
@@ -93,49 +123,265 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jt_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(jb_crearCajero)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear Cajero", jPanel1);
+
+        jLabel5.setText("Nombre");
+
+        jLabel6.setText("Precio");
+
+        jLabel7.setText("Tiempo de Prcesamiento");
+
+        jb_crearPro.setText("Crear");
+        jb_crearPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearProMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(52, 52, 52)
+                                .addComponent(sp_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(85, 85, 85)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_nameProduct)
+                                    .addComponent(tf_precio, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jb_crearPro, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 335, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_nameProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(sp_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jb_crearPro)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear Producto", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 335, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Ventas", jPanel3);
+        jb_salir.setText("Salir");
+        jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_adminLayout = new javax.swing.GroupLayout(jd_admin.getContentPane());
         jd_admin.getContentPane().setLayout(jd_adminLayout);
         jd_adminLayout.setHorizontalGroup(
             jd_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_adminLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_salir)
+                .addGap(40, 40, 40))
         );
         jd_adminLayout.setVerticalGroup(
             jd_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_adminLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_adminLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_salir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+        );
+
+        jl_cajero.setText("nameCajero");
+
+        jl_cliente.setText("nameCliente");
+
+        jLabel4.setText("Procesando");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Producto", "Cliente", "Tiempo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jl_cajero)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_cliente)
+                .addGap(55, 55, 55))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel4)
+                .addGap(46, 46, 46)
+                .addComponent(tf_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_cajero)
+                    .addComponent(jl_cliente))
+                .addGap(32, 32, 32)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jLabel8.setText("Cliente");
+
+        jLabel9.setText("Nombre");
+
+        jLabel10.setText("Edad");
+
+        jb_agregarProducto.setText("Agregar a Orden");
+        jb_agregarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarProductoMouseClicked(evt);
+            }
+        });
+
+        jb_comprar.setText("Realizar Compra");
+        jb_comprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_comprarActionPerformed(evt);
+            }
+        });
+
+        productoss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productossActionPerformed(evt);
+            }
+        });
+
+        jb_salir2.setText("Salir");
+        jb_salir2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salir2MouseClicked(evt);
+            }
+        });
+
+        jLabel11.setText("Producto");
+
+        jLabel12.setText("Cajero");
+
+        javax.swing.GroupLayout jd_clienteLayout = new javax.swing.GroupLayout(jd_cliente.getContentPane());
+        jd_cliente.getContentPane().setLayout(jd_clienteLayout);
+        jd_clienteLayout.setHorizontalGroup(
+            jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_clienteLayout.createSequentialGroup()
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_clienteLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_clienteLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(43, 43, 43)
+                                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_nameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jd_clienteLayout.createSequentialGroup()
+                                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+                                .addComponent(jb_salir2))))
+                    .addGroup(jd_clienteLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jb_agregarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(productoss, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)
+                        .addComponent(cajeross, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_clienteLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jb_comprar)
+                .addGap(36, 36, 36))
+            .addGroup(jd_clienteLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(86, 86, 86))
+        );
+        jd_clienteLayout.setVerticalGroup(
+            jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_clienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jb_salir2))
+                .addGap(48, 48, 48)
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tf_nameClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(productoss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cajeross, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jb_agregarProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_comprar)
+                .addGap(13, 13, 13))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,8 +389,18 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setText("Super Mercado");
 
         jb_admin.setText("Administrador");
+        jb_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_adminMouseClicked(evt);
+            }
+        });
 
         jb_cliente.setText("Cliente");
+        jb_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_clienteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,15 +435,84 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_crearCajeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearCajeroMouseClicked
         try {
-            if (!this.jt_nombreCaj.getText().equals("")){
-                cajeros.add(new Cajero(this.jt_nombreCaj.getText(), this.jt_ID.getText()));
+            if (!this.jt_nombreCaj.getText().equals("")) {
+                Cajero c = new Cajero(this.jt_nombreCaj.getText(), this.jt_ID.getText());
+                DefaultComboBoxModel model = (DefaultComboBoxModel) cajeross.getModel();
+                model.addElement(c);
                 this.jt_ID.setText("");
                 this.jt_nombreCaj.setText("");
+                c.getFrame().setVisible(true);
+                ((PantallaProceso) c.getFrame()).getJl_cajero().setText("Cajero: " + c.getNombre());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrió un error y no se creó el Cajero");
         }
     }//GEN-LAST:event_jb_crearCajeroMouseClicked
+
+    private void jb_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminMouseClicked
+        this.setVisible(false);
+        this.jd_admin.pack();
+        this.jd_admin.setVisible(true);
+        this.jd_admin.setLocationRelativeTo(this);
+    }//GEN-LAST:event_jb_adminMouseClicked
+
+    private void jb_crearProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearProMouseClicked
+        try {
+            if (!this.tf_nameProduct.getText().equals("")) {
+                if (!this.tf_precio.getText().equals("")) {
+                    if ((int) this.sp_tiempo.getValue() > 0) {
+                        Producto p = new Producto(this.tf_nameProduct.getText(), Float.parseFloat(this.tf_precio.getText()), (int) this.sp_tiempo.getValue());
+                        DefaultComboBoxModel model = (DefaultComboBoxModel) productoss.getModel();
+                        model.addElement(p);
+                        this.tf_nameProduct.setText("");
+                        this.tf_precio.setText("");
+                        this.sp_tiempo.setValue(3);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Datos Incorrectos!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Datos Incorrectos!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Datos Incorrectos!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrió un error y no se creó el Producto");
+        }
+    }//GEN-LAST:event_jb_crearProMouseClicked
+
+    private void jb_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_comprarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_comprarActionPerformed
+
+    private void productossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productossActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productossActionPerformed
+
+    private void jb_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_clienteMouseClicked
+        this.jd_cliente.setVisible(true);
+        this.setVisible(false);
+        this.jd_cliente.pack();
+        this.jd_cliente.setLocationRelativeTo(this);
+    }//GEN-LAST:event_jb_clienteMouseClicked
+
+    private void jb_salir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salir2MouseClicked
+        this.setVisible(true);
+        this.jd_cliente.setVisible(false);
+        regresarProductos();
+    }//GEN-LAST:event_jb_salir2MouseClicked
+
+    private void jb_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMouseClicked
+        this.setVisible(true);
+        this.jd_admin.setVisible(false);
+    }//GEN-LAST:event_jb_salirMouseClicked
+
+    private void jb_agregarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarProductoMouseClicked
+        DefaultComboBoxModel model = (DefaultComboBoxModel) productoss.getModel();
+        porComprar.add((Producto) model.getSelectedItem());
+        model.removeElement(model.getSelectedItem());
+        productoss.setModel(model);
+    }//GEN-LAST:event_jb_agregarProductoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -225,19 +550,55 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cajeross;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_admin;
+    private javax.swing.JButton jb_agregarProducto;
     private javax.swing.JButton jb_cliente;
+    private javax.swing.JButton jb_comprar;
     private javax.swing.JButton jb_crearCajero;
+    private javax.swing.JButton jb_crearPro;
+    private javax.swing.JButton jb_salir;
+    private javax.swing.JButton jb_salir2;
     private javax.swing.JDialog jd_admin;
+    private javax.swing.JDialog jd_cliente;
+    private javax.swing.JLabel jl_cajero;
+    private javax.swing.JLabel jl_cliente;
     private javax.swing.JFormattedTextField jt_ID;
     private javax.swing.JTextField jt_nombreCaj;
+    private javax.swing.JComboBox<String> productoss;
+    private javax.swing.JSpinner sp_edad;
+    private javax.swing.JSpinner sp_tiempo;
+    private javax.swing.JTextField tf_nameClient;
+    private javax.swing.JTextField tf_nameProduct;
+    private javax.swing.JTextField tf_precio;
+    private javax.swing.JTextField tf_producto;
     // End of variables declaration//GEN-END:variables
-ArrayList<Cajero> cajeros;
+JComboBox cajeros;
+    JComboBox productos;
+    ArrayList<Producto> porComprar;
+    
+    public void regresarProductos(){
+        for (Producto producto : porComprar) {
+            DefaultComboBoxModel model = (DefaultComboBoxModel) productoss.getModel();
+            model.addElement(porComprar);
+        }
+    }
 }
