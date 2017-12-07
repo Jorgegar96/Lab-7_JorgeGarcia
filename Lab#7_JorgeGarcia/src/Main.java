@@ -23,6 +23,8 @@ public class Main extends javax.swing.JFrame {
         productos = new JComboBox();
         cajeros = new JComboBox();
         porComprar = new ArrayList();
+        traerCajeros();
+        traerProductos();
     }
 
     /**
@@ -441,13 +443,17 @@ public class Main extends javax.swing.JFrame {
     private void jb_crearCajeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearCajeroMouseClicked
         try {
             if (!this.jt_nombreCaj.getText().equals("")) {
-                Cajero c = new Cajero(this.jt_nombreCaj.getText(), this.jt_ID.getText());
-                DefaultComboBoxModel model = (DefaultComboBoxModel) cajeross.getModel();
-                model.addElement(c);
-                this.jt_ID.setText("");
-                this.jt_nombreCaj.setText("");
-                c.getFrame().setVisible(true);
-                ((PantallaProceso) c.getFrame()).getJl_cajero().setText("Cajero: " + c.getNombre());
+                if (IDUnico(this.jt_ID.getText())) {
+                    Cajero c = new Cajero(this.jt_nombreCaj.getText(), this.jt_ID.getText());
+                    DefaultComboBoxModel model = (DefaultComboBoxModel) cajeross.getModel();
+                    model.addElement(c);
+                    this.jt_ID.setText("");
+                    this.jt_nombreCaj.setText("");
+                    c.getFrame().setVisible(true);
+                    ((PantallaProceso) c.getFrame()).getJl_cajero().setText("Cajero: " + c.getNombre());
+                }else{
+                    JOptionPane.showMessageDialog(this.jd_admin, "El ID debe ser único");
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrió un error y no se creó el Cajero");
@@ -627,9 +633,27 @@ JComboBox cajeros;
             for (int x = 0; x < model.getSize(); x++) {
                 comparar.add((Producto) model.getElementAt(x));
             }
-            if (comparar.contains(producto)) {
+            if (!comparar.contains(producto)) {
                 model.addElement(producto);
             }
         }
+    }
+
+    public void traerCajeros() {
+
+    }
+
+    public void traerProductos() {
+
+    }
+
+    public boolean IDUnico(String ID) {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cajeross.getModel();
+        for (int x = 0; x < model.getSize(); x++) {
+            if (((Cajero) model.getElementAt(x)).getID().equals(ID)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

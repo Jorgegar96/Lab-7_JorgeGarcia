@@ -36,7 +36,7 @@ public class PantallaProceso extends JFrame {
         jTable1 = new javax.swing.JTable();
         jl_hora = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jl_cajero.setText("nameCajero");
 
